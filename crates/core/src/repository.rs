@@ -627,7 +627,7 @@ impl<P, S> Repository<P, S> {
     fn open_raw(mut self, key: Key, config: ConfigFile) -> RusticResult<Repository<P, OpenStatus>> {
         match (config.is_hot == Some(true), self.be_hot.is_some()) {
             (true, false) => return Err(RepositoryErrorKind::HotRepositoryFlagMissing.into()),
-            (false, true) => return Err(RepositoryErrorKind::IsNotHotRepository.into()),
+            (false, true) => {},
             _ => {}
         }
 
